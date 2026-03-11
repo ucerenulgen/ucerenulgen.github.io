@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugur Ceren Ulgen — Portfolio & CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #F5F0EB;
+            --bg-deep: #EDE6DD;
+            --ink: #1A1A18;
+            --ink-light: #6B6560;
+            --ink-muted: #9E9690;
+            --accent: #C4441A;
+            --accent-glow: #E8652E;
+            --cream: #FAF7F4;
+            --card: #FFFFFF;
+            --rule: #D4CBC2;
+            --serif: 'DM Serif Display', Georgia, serif;
+            --sans: 'Instrument Sans', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(245, 240, 235, 0.8);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.4s, background 0.4s;
+        }
+
+        nav.scrolled {
+            border-bottom-color: var(--rule);
+            background: rgba(245, 240, 235, 0.95);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 28px;
+            height: 20px;
+            position: relative;
+        }
+
+        .nav-toggle span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--ink);
+            transition: 0.3s;
+        }
+
+        .nav-toggle span:nth-child(1) { top: 0; }
+        .nav-toggle span:nth-child(2) { top: 9px; }
+        .nav-toggle span:nth-child(3) { top: 18px; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 68, 26, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+        }
+
+        .hero-photo {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeRight 0.8s 0.3s forwards;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 25px 60px rgba(26, 26, 24, 0.12);
+        }
+
+        .hero-photo-frame {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: 10px;
+            left: 10px;
+            border: 1.5px solid var(--accent);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s 0.5s forwards;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--ink-light);
+            max-width: 520px;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.7s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s 0.9s forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            border-radius: 100px;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(196, 68, 26, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--rule);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            opacity: 0;
+            animation: fadeUp 0.8s 1.2s forwards;
+        }
+
+        .scroll-line {
+            width: 40px;
+            height: 1.5px;
+            background: var(--rule);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            padding: 6rem 3rem;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+        }
+
+        .section-rule {
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+            margin-left: 1rem;
+        }
+
+        /* ─── ABOUT ─── */
+        .about {
+            background: var(--bg-deep);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content-full {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-content-full .about-text h3,
+        .about-content-full .about-text p {
+            text-align: left;
+        }
+
+        .about-content-full .about-stats {
+            text-align: center;
+        }
+
+        .about-portrait {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--rule) 0%, var(--bg) 100%);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-portrait::after {
+            content: 'Your Photo';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--ink-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .about-portrait-frame {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            bottom: 12px;
+            left: 12px;
+            border: 1.5px solid var(--accent);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .about-text h3 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .about-text p {
+            color: var(--ink-light);
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .stat-number {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── LANGUAGES ─── */
+        .languages {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--rule);
+            width: 100%;
+        }
+
+        .languages-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .lang-card {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .lang-name {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .lang-level {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .lang-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--rule);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .lang-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+            border-radius: 4px;
+        }
+
+        /* ─── EXPERIENCE ─── */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--rule);
+            position: relative;
+            cursor: default;
+            transition: background 0.3s;
+        }
+
+        .exp-item:first-child {
+            border-top: 1px solid var(--rule);
+        }
+
+        .exp-item:hover {
+            background: rgba(196, 68, 26, 0.02);
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            font-weight: 500;
+            padding-top: 0.25rem;
+        }
+
+        .exp-role {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .exp-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-desc {
+            color: var(--ink-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .exp-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            background: var(--bg-deep);
+            color: var(--ink-light);
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── EDUCATION ─── */
+        .education {
+            background: var(--bg-deep);
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .edu-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s, box-shadow 0.35s;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(26, 26, 24, 0.08);
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+        }
+
+        .edu-year {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .edu-degree {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .edu-school {
+            color: var(--ink-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .edu-detail {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+            line-height: 1.65;
+        }
+
+        /* ─── SKILLS ─── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-group h4 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--ink-light);
+        }
+
+        .skill-bar-wrap {
+            width: 80px;
+            height: 3px;
+            background: var(--rule);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-bar.visible {
+            transform: scaleX(1);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            background: var(--ink);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 68, 26, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact .section-title { color: var(--cream); }
+        .contact .section-rule { background: rgba(255,255,255,0.15); }
+
+        .contact-grid {
+            position: relative;
+        }
+
+        .contact-text h3 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-text p {
+            color: rgba(250, 247, 244, 0.6);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover { color: var(--accent-glow); }
+
+        .contact-link-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .contact-link:hover .contact-link-icon {
+            border-color: var(--accent-glow);
+            background: rgba(196, 68, 26, 0.15);
+        }
+
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--ink);
+            color: rgba(250, 247, 244, 0.35);
+            padding: 2rem 3rem;
+            text-align: center;
+            font-size: 0.82rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ─── KEYFRAMES ─── */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--rule);
+            }
+            .nav-toggle { display: block; }
+
+            section { padding: 4rem 1.5rem; }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+            .hero-photo { max-width: 260px; margin: 0 auto; }
+            .hero-content { text-align: center; }
+            .hero-cta { justify-content: center; }
+            .hero-scroll { display: none; }
+
+            .about-content-full .about-text { max-width: 100% !important; }
+
+            .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .exp-date { padding-top: 0; }
+
+            .edu-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .languages-grid { grid-template-columns: 1fr; }
+
+            .section-header { margin-bottom: 2.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-cta { flex-direction: column; }
+            .hero-cta .btn { text-align: center; justify-content: center; }
+            .about-stats { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">UCU<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-layout">
+            <div class="hero-photo">
+                <img src="CV_pic.jpeg" alt="Ugur Ceren Ulgen">
+                <div class="hero-photo-frame"></div>
+            </div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Data-Driven Marketing Strategist</p>
+                <h1>Hello, I'm<br>Ugur Ceren <em>Ulgen</em></h1>
+                <p class="hero-sub">Strategy-driven MSc candidate blending analytical engineering with data-driven marketing. I design decision frameworks, analyze ecosystems, and optimize digital growth.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        Get In Touch
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">View My Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            Scroll to explore
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="about-content-full">
+                <div class="about-text" style="max-width: 800px;">
+                    <h3 class="reveal reveal-delay-1">An analytical mind with a passion for turning data into strategic impact.</h3>
+                    <p class="reveal reveal-delay-2">Based in Luzern, Switzerland, I'm an MSc candidate in Online Business &amp; Marketing combining quantitative engineering training with strategic marketing expertise. Experienced in designing partner-evaluation frameworks, full-funnel media strategies, and data-driven campaign optimization. Skilled at translating complex data into structured decision models for brand growth, digital performance, and audience engagement.</p>
+                    <p class="reveal reveal-delay-2">I particularly enjoy leveraging social media as a strategic tool for audience understanding, testing, and scalable impact. Outside of work, you'll find me at ballet class, creating content on social media, swimming, skiing, or exploring fashion &amp; brand trends.</p>
+                    <div class="about-stats reveal reveal-delay-3">
+                        <div>
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Industry Projects</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Languages Spoken</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Degrees</div>
+                        </div>
+                    </div>
+                    <div class="languages reveal reveal-delay-4">
+                        <h4 class="languages-title">Languages</h4>
+                        <div class="languages-grid">
+                            <div class="lang-card">
+                                <span class="lang-name">Turkish</span>
+                                <span class="lang-level">C2 / Native</span>
+                                <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+                            </div>
+                            <div class="lang-card">
+                                <span class="lang-name">English</span>
+                                <span class="lang-level">C1</span>
+                                <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+                            </div>
+                            <div class="lang-card">
+                                <span class="lang-name">German</span>
+                                <span class="lang-level">A2 — in progress</span>
+                                <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Experience</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="exp-list">
+                <div class="exp-item reveal">
+                    <div class="exp-date">Jul 2024 — Aug 2024</div>
+                    <div>
+                        <div class="exp-role">Sales &amp; After-Sales Operations Intern</div>
+                        <div class="exp-company">Artemis Construction Industry</div>
+                        <p class="exp-desc">Optimized order-to-delivery workflow via ERP analytics, improving pricing accuracy and reducing transaction errors. Streamlined after-sales and warranty operations through service analytics and structured issue resolution. Enabled sales operations via cross-functional coordination, KPI reporting, and process tracking.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">ERP Analytics</span>
+                            <span class="exp-tag">KPI Reporting</span>
+                            <span class="exp-tag">Process Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Aug 2023 — Sep 2023</div>
+                    <div>
+                        <div class="exp-role">Production Planning Intern</div>
+                        <div class="exp-company">SUNNY — Atmaca Electronics</div>
+                        <p class="exp-desc">Led Kaizen-based time studies and bottleneck analysis across multi-product production lines. Tracked hourly output vs. KPI targets using advanced Excel analysis. Benchmarked Samsung vs. Sunny production efficiency metrics and supported data-driven planning decisions via ERP-based reporting.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Kaizen</span>
+                            <span class="exp-tag">Excel</span>
+                            <span class="exp-tag">ERP</span>
+                            <span class="exp-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="education" id="projects">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Projects</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="exp-list">
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2025 — Dec 2025</div>
+                    <div>
+                        <div class="exp-role">Marketing Strategy Development</div>
+                        <div class="exp-company">Webrepublic AG &times; Direct Coffee — HSLU Industry Project</div>
+                        <p class="exp-desc">Partnered with Switzerland's leading digital agency to develop a go-to-market campaign strategy for a D2C coffee brand. Mapped the competitive landscape to uncover untapped positioning opportunities, then translated findings into a platform growth playbook with actionable KPIs for paid and organic channels.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Campaign Strategy</span>
+                            <span class="exp-tag">Competitive Analysis</span>
+                            <span class="exp-tag">D2C Growth</span>
+                            <span class="exp-tag">Platform Strategy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Feb 2025 — Jun 2025</div>
+                    <div>
+                        <div class="exp-role">Strategic Partnership Evaluation</div>
+                        <div class="exp-company">Cabritsch Outdoor Fashion AG — HSLU Industry Project</div>
+                        <p class="exp-desc">Built a data-driven partner scoring framework across four weighted dimensions (Value Alignment, Audience Fit, Visibility, Price) to help an emerging Swiss outdoor brand identify its highest-value collaboration partners. Validated the model through expert interviews and delivered a prioritized roadmap that directly informed the brand's partnership pipeline.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Scoring Model</span>
+                            <span class="exp-tag">Expert Interviews</span>
+                            <span class="exp-tag">Brand Strategy</span>
+                            <span class="exp-tag">Decision Frameworks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Feb 2025 — Jun 2025</div>
+                    <div>
+                        <div class="exp-role">Content Strategy &amp; Audience Analytics</div>
+                        <div class="exp-company">The Shine Series Blog</div>
+                        <p class="exp-desc">Launched and grew a content platform from zero, reaching 1,064 page views and 221 active users. Ran A/B-style content experiments that lifted engagement rate from 62.3% to 65.3%. Managed the full content pipeline — SEO keyword research, editorial calendar, WordPress publishing — with every decision backed by Google Analytics data.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Google Analytics</span>
+                            <span class="exp-tag">SEO</span>
+                            <span class="exp-tag">WordPress</span>
+                            <span class="exp-tag">A/B Testing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2024 — Nov 2024</div>
+                    <div>
+                        <div class="exp-role">Chatbot Strategy for Lead Generation &amp; Customer Retention</div>
+                        <div class="exp-company">HSLU Group Assignment — Digital Customer Management</div>
+                        <p class="exp-desc">Analyzed strategic implementation of AI chatbots across the customer journey (pre-purchase, purchase, post-purchase). Evaluated CRM integration using the Eight Building Blocks framework and developed implementation recommendations for NLP-based chatbot deployment to improve lead conversion and retention.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">AI Chatbots</span>
+                            <span class="exp-tag">CRM Integration</span>
+                            <span class="exp-tag">Customer Journey</span>
+                            <span class="exp-tag">Lead Conversion</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2024 — Dec 2024</div>
+                    <div>
+                        <div class="exp-role">Organizational Change Analysis</div>
+                        <div class="exp-company">CSEM SA — HSLU Corporate Case Study</div>
+                        <p class="exp-desc">Analyzed a live organizational transformation at a leading Swiss deep-tech research institution. Mapped gaps in leadership communication and structural alignment, then applied established change-management frameworks to produce actionable recommendations adopted by the leadership team.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Change Management</span>
+                            <span class="exp-tag">Stakeholder Analysis</span>
+                            <span class="exp-tag">Strategic Recommendations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2023 — Jun 2024</div>
+                    <div>
+                        <div class="exp-role">Bachelor Thesis — Portfolio Optimization &amp; Investment Strategy</div>
+                        <div class="exp-company">Kadir Has University</div>
+                        <p class="exp-desc">Engineered multi-scenario portfolio allocation models using historical market data to evaluate risk-return trade-offs across investment strategies. Produced a quantitative decision model that identified the optimal asset mix under varying market conditions — bridging industrial engineering methodology with financial analytics.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Quantitative Modeling</span>
+                            <span class="exp-tag">Financial Analytics</span>
+                            <span class="exp-tag">Risk Analysis</span>
+                            <span class="exp-tag">Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education" id="education">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Education</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card reveal reveal-delay-1">
+                    <div class="edu-year">Sep 2024 — Dec 2026 (expected)</div>
+                    <div class="edu-degree">MSc. Business Administration — Online Business &amp; Marketing</div>
+                    <div class="edu-school">Lucerne University of Applied Sciences and Arts (HSLU), Luzern, Switzerland</div>
+                    <p class="edu-detail">Coursework: Data-Driven Marketing Analytics, Platform Strategy &amp; Digital Ecosystems</p>
+                </div>
+                <div class="edu-card reveal reveal-delay-2">
+                    <div class="edu-year">Sep 2020 — Jun 2024</div>
+                    <div class="edu-degree">BSc. Industrial Engineering</div>
+                    <div class="edu-school">Kadir Has University, Istanbul, Turkey</div>
+                    <p class="edu-detail">Coursework: Operations Research, Optimization &amp; Simulation Modeling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Skills</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-group reveal reveal-delay-1">
+                    <h4>Strategy &amp; Analytics</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Data Analysis</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>KPI Modeling</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Market Research</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Audience Segmentation</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Decision Framework Design</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Qualitative Research</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Thematic Analysis</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group reveal reveal-delay-2">
+                    <h4>Digital &amp; Growth</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>SEO / SEM</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Conversion Analytics (CTR, CR, ROI)</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Content Performance Optimization</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Social Media Strategy</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Media Planning &amp; Buying</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>CRM Strategy</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>A/B Testing</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>UX Audit</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group reveal reveal-delay-3">
+                    <h4>Tools</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Google Analytics 4</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Excel / Microsoft 365</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>SQL / SPSS</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>WordPress</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Adobe Premiere Pro</span>
+                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="contact-text reveal" style="max-width: 600px;">
+                <h3>Let's create something impactful together.</h3>
+                <p>I'm always open to discussing new opportunities, collaborations, or projects where data meets strategy. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:u.cerenulgen@gmail.com" class="contact-link">
+                        <div class="contact-link-icon">&#9993;</div>
+                        u.cerenulgen@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/ugur-ceren-ulgen/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-link-icon">in</div>
+                        linkedin.com/in/ugur-ceren-ulgen
+                    </a>
+                    <a href="#" class="contact-link">
+                        <div class="contact-link-icon">&#9670;</div>
+                        Luzern, Switzerland
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Ugur Ceren Ulgen. Crafted with care.</p>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Skill bars animation
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => skillObserver.observe(bar));
+
+    </script>
+</body>
+</html>
