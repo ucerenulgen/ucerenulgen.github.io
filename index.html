@@ -357,6 +357,138 @@
             margin-left: 1rem;
         }
 
+        /* ─── THESIS ─── */
+        .thesis {
+            background: var(--ink);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thesis::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 68, 26, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .thesis .section-title { color: var(--cream); }
+        .thesis .section-rule { background: rgba(255,255,255,0.15); }
+
+        .thesis-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: var(--accent);
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .thesis-heading {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .thesis-intro {
+            color: rgba(250, 247, 244, 0.65);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .thesis-rq {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .thesis-rq-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-glow);
+            margin-bottom: 0.5rem;
+        }
+
+        .thesis-rq p {
+            font-size: 0.88rem;
+            color: rgba(250, 247, 244, 0.7);
+            line-height: 1.55;
+        }
+
+        .thesis-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .thesis-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .thesis-meta-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 244, 0.4);
+        }
+
+        .thesis-meta-value {
+            font-size: 0.95rem;
+            color: var(--cream);
+        }
+
+        .thesis-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .thesis .btn-primary {
+            background: var(--accent);
+        }
+
+        .thesis .btn-primary:hover {
+            background: var(--accent-glow);
+        }
+
+        .thesis .btn-outline {
+            color: var(--cream);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .thesis .btn-outline:hover {
+            border-color: var(--cream);
+        }
+
         /* ─── ABOUT ─── */
         .about {
             background: var(--bg-deep);
@@ -654,6 +786,20 @@
             gap: 2rem;
         }
 
+        .skill-group {
+            background: #fff;
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-group:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
         .skill-group h4 {
             font-family: var(--serif);
             font-size: 1.15rem;
@@ -665,16 +811,26 @@
 
         .skill-items {
             display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .skill-item {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: var(--ink-light);
+            background: var(--bg);
+            border: 1px solid var(--rule);
+            border-radius: 20px;
+            padding: 0.35rem 0.85rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
         }
 
         .skill-bar-wrap {
@@ -847,6 +1003,7 @@
             .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .exp-date { padding-top: 0; }
 
+            .thesis-grid { grid-template-columns: 1fr 1fr; }
             .edu-grid { grid-template-columns: 1fr; }
             .skills-grid { grid-template-columns: 1fr; }
             .languages-grid { grid-template-columns: 1fr; }
@@ -859,6 +1016,7 @@
             .hero-cta { flex-direction: column; }
             .hero-cta .btn { text-align: center; justify-content: center; }
             .about-stats { grid-template-columns: 1fr; gap: 1.25rem; }
+            .thesis-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -868,6 +1026,7 @@
     <nav id="navbar">
         <a href="#" class="nav-logo">UCU<span>.</span></a>
         <ul class="nav-links" id="navLinks">
+            <li><a href="#thesis">Thesis</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -890,19 +1049,78 @@
             <div class="hero-content">
                 <p class="hero-eyebrow">Data-Driven Marketing Strategist</p>
                 <h1>Hello, I'm<br>Ugur Ceren <em>Ulgen</em></h1>
-                <p class="hero-sub">Strategy-driven MSc candidate blending analytical engineering with data-driven marketing. I design decision frameworks, analyze ecosystems, and optimize digital growth.</p>
+                <p class="hero-sub">Strategy-driven MSc candidate blending analytical engineering with data-driven marketing. Currently seeking a company partner for my Master Thesis on AI-driven brand visibility.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">
                         Get In Touch
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                    <a href="#projects" class="btn btn-outline">View My Projects</a>
+                    <a href="#thesis" class="btn btn-outline">View Thesis Proposal</a>
                 </div>
             </div>
         </div>
         <div class="hero-scroll">
             <div class="scroll-line"></div>
             Scroll to explore
+        </div>
+    </section>
+
+    <!-- THESIS -->
+    <section class="thesis" id="thesis">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number" style="color: var(--accent-glow);">00</span>
+                <h2 class="section-title">Master Thesis</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="reveal reveal-delay-1">
+                <span class="thesis-badge">Seeking Company Partner</span>
+                <h3 class="thesis-heading">How Brands Appear in AI-Generated Answers &amp; Recommendations</h3>
+                <p class="thesis-intro">AI systems are increasingly shaping how users discover products and companies. Rather than browsing traditional search results, users now rely on AI-generated answers and recommendation systems. This thesis investigates which brands become visible in AI outputs, how digital authority and online presence drive that visibility, and whether it affects brand perception, trust, and purchasing decisions. The research design is adaptable to align with a partner company's strategic interests.</p>
+            </div>
+            <div class="thesis-grid reveal reveal-delay-2">
+                <div class="thesis-rq">
+                    <div class="thesis-rq-label">RQ 1</div>
+                    <p>How visible are different companies in AI-generated answers, and how can this visibility be measured?</p>
+                </div>
+                <div class="thesis-rq">
+                    <div class="thesis-rq-label">RQ 2</div>
+                    <p>Which companies are recommended more frequently by AI systems within the same category, and why?</p>
+                </div>
+                <div class="thesis-rq">
+                    <div class="thesis-rq-label">RQ 3</div>
+                    <p>How do content structure, digital presence, and positioning influence AI visibility?</p>
+                </div>
+                <div class="thesis-rq">
+                    <div class="thesis-rq-label">RQ 4</div>
+                    <p>Does higher AI visibility influence brand perception or customer preference?</p>
+                </div>
+            </div>
+            <div class="thesis-meta reveal reveal-delay-3">
+                <div class="thesis-meta-item">
+                    <span class="thesis-meta-label">Methodology</span>
+                    <span class="thesis-meta-value">AI Query Experiments, Competitive Visibility Analysis, Digital Presence Analysis, User Perception Survey</span>
+                </div>
+                <div class="thesis-meta-item">
+                    <span class="thesis-meta-label">Frameworks</span>
+                    <span class="thesis-meta-value">GEO, LLMO, AI-Driven Brand Visibility</span>
+                </div>
+                <div class="thesis-meta-item">
+                    <span class="thesis-meta-label">Tools</span>
+                    <span class="thesis-meta-value">ChatGPT, Perplexity, Gemini, Semrush/Ahrefs</span>
+                </div>
+                <div class="thesis-meta-item">
+                    <span class="thesis-meta-label">Timeline</span>
+                    <span class="thesis-meta-value">Now — Dec 2026</span>
+                </div>
+            </div>
+            <div class="thesis-cta reveal reveal-delay-4">
+                <a href="Master_Thesis_Proposal.pdf" class="btn btn-primary" target="_blank">
+                    Download Full Proposal
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
         </div>
     </section>
 
@@ -944,7 +1162,7 @@
                             <div class="lang-card">
                                 <span class="lang-name">English</span>
                                 <span class="lang-level">C1</span>
-                                <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+                                <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
                             </div>
                             <div class="lang-card">
                                 <span class="lang-name">German</span>
@@ -1050,20 +1268,6 @@
                     </div>
                 </div>
                 <div class="exp-item reveal">
-                    <div class="exp-date">Sep 2024 — Nov 2024</div>
-                    <div>
-                        <div class="exp-role">Chatbot Strategy for Lead Generation &amp; Customer Retention</div>
-                        <div class="exp-company">HSLU Group Assignment — Digital Customer Management</div>
-                        <p class="exp-desc">Analyzed strategic implementation of AI chatbots across the customer journey (pre-purchase, purchase, post-purchase). Evaluated CRM integration using the Eight Building Blocks framework and developed implementation recommendations for NLP-based chatbot deployment to improve lead conversion and retention.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">AI Chatbots</span>
-                            <span class="exp-tag">CRM Integration</span>
-                            <span class="exp-tag">Customer Journey</span>
-                            <span class="exp-tag">Lead Conversion</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
                     <div class="exp-date">Sep 2024 — Dec 2024</div>
                     <div>
                         <div class="exp-role">Organizational Change Analysis</div>
@@ -1073,6 +1277,20 @@
                             <span class="exp-tag">Change Management</span>
                             <span class="exp-tag">Stakeholder Analysis</span>
                             <span class="exp-tag">Strategic Recommendations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2024 — Nov 2024</div>
+                    <div>
+                        <div class="exp-role">Chatbot Strategy for Lead Generation &amp; Customer Retention</div>
+                        <div class="exp-company">HSLU Project — Digital Customer Management</div>
+                        <p class="exp-desc">Analyzed strategic implementation of AI chatbots across the customer journey (pre-purchase, purchase, post-purchase). Evaluated CRM integration using the Eight Building Blocks framework and developed implementation recommendations for NLP-based chatbot deployment to improve lead conversion and retention.</p>
+                        <div class="exp-tags">
+                            <span class="exp-tag">AI Chatbots</span>
+                            <span class="exp-tag">CRM Integration</span>
+                            <span class="exp-tag">Customer Journey</span>
+                            <span class="exp-tag">Lead Conversion</span>
                         </div>
                     </div>
                 </div>
@@ -1133,31 +1351,24 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <span>Data Analysis</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>KPI Modeling</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Market Research</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Audience Segmentation</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Decision Framework Design</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Qualitative Research</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Thematic Analysis</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1166,35 +1377,27 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <span>SEO / SEM</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Conversion Analytics (CTR, CR, ROI)</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Content Performance Optimization</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Social Media Strategy</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Media Planning &amp; Buying</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>CRM Strategy</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>A/B Testing</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>UX Audit</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1203,23 +1406,18 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <span>Google Analytics 4</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Excel / Microsoft 365</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>SQL / SPSS</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>WordPress</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
                         </div>
                         <div class="skill-item">
                             <span>Adobe Premiere Pro</span>
-                            <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1236,8 +1434,8 @@
                 <div class="section-rule"></div>
             </div>
             <div class="contact-text reveal" style="max-width: 600px;">
-                <h3>Let's create something impactful together.</h3>
-                <p>I'm always open to discussing new opportunities, collaborations, or projects where data meets strategy. Feel free to reach out!</p>
+                <h3>Looking for a Master Thesis company partner.</h3>
+                <p>I'm currently seeking a company collaboration for my Master Thesis on AI-driven brand visibility. If your team is interested in understanding how brands appear in AI-generated answers — or if you'd like to explore other opportunities — I'd love to connect.</p>
                 <div class="contact-links">
                     <a href="mailto:u.cerenulgen@gmail.com" class="contact-link">
                         <div class="contact-link-icon">&#9993;</div>
