@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3R0HS87VX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K3R0HS87VX');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ugur Ceren Ulgen — Portfolio & CV</title>
@@ -364,138 +357,6 @@
             margin-left: 1rem;
         }
 
-        /* ─── THESIS ─── */
-        .thesis {
-            background: var(--ink);
-            color: var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .thesis::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -15%;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 68, 26, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .thesis .section-title { color: var(--cream); }
-        .thesis .section-rule { background: rgba(255,255,255,0.15); }
-
-        .thesis-badge {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            background: var(--accent);
-            color: var(--cream);
-            margin-bottom: 1.5rem;
-        }
-
-        .thesis-heading {
-            font-family: var(--serif);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            line-height: 1.25;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.01em;
-        }
-
-        .thesis-intro {
-            color: rgba(250, 247, 244, 0.65);
-            font-size: 1.05rem;
-            line-height: 1.75;
-            max-width: 100%;
-            margin-bottom: 2.5rem;
-        }
-
-        .thesis-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .thesis-rq {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-            padding: 1.25rem;
-        }
-
-        .thesis-rq-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent-glow);
-            margin-bottom: 0.5rem;
-        }
-
-        .thesis-rq p {
-            font-size: 0.88rem;
-            color: rgba(250, 247, 244, 0.7);
-            line-height: 1.55;
-        }
-
-        .thesis-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            margin-bottom: 2.5rem;
-        }
-
-        .thesis-meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .thesis-meta-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: rgba(250, 247, 244, 0.4);
-        }
-
-        .thesis-meta-value {
-            font-size: 0.95rem;
-            color: var(--cream);
-        }
-
-        .thesis-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .thesis .btn-primary {
-            background: var(--accent);
-        }
-
-        .thesis .btn-primary:hover {
-            background: var(--accent-glow);
-        }
-
-        .thesis .btn-outline {
-            color: var(--cream);
-            border-color: rgba(255,255,255,0.2);
-        }
-
-        .thesis .btn-outline:hover {
-            border-color: var(--cream);
-        }
-
         /* ─── ABOUT ─── */
         .about {
             background: var(--bg-deep);
@@ -706,6 +567,14 @@
             line-height: 1.7;
         }
 
+        ul.exp-desc {
+            padding-left: 1.1rem;
+        }
+
+        ul.exp-desc li + li {
+            margin-top: 0.35rem;
+        }
+
         .exp-tags {
             display: flex;
             flex-wrap: wrap;
@@ -784,6 +653,163 @@
             font-size: 0.88rem;
             color: var(--ink-muted);
             line-height: 1.65;
+        }
+
+        /* ─── DESIGN WORK (inside experience entry) ─── */
+        .exp-designs {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .exp-designs-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ink-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-design-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .exp-design {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-deep);
+            border: 1px solid var(--rule);
+        }
+
+        .exp-design-thumb {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border: none;
+            padding: 0;
+            background: none;
+            cursor: zoom-in;
+            overflow: hidden;
+        }
+
+        .exp-design-thumb img,
+        .exp-design-thumb video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .exp-design:hover .exp-design-thumb img,
+        .exp-design:hover .exp-design-thumb video {
+            transform: scale(1.05);
+        }
+
+        .exp-design-caption {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.6rem;
+            background: var(--card);
+            font-size: 0.72rem;
+            color: var(--ink-light);
+            line-height: 1.3;
+        }
+
+        .exp-design-caption span {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .exp-design-download {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            color: var(--ink-light);
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .exp-design-download:hover {
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(26, 26, 24, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .lightbox.open { display: flex; }
+
+        .lightbox-content {
+            max-width: min(1100px, 100%);
+            max-height: 100%;
+            overflow: auto;
+            border-radius: 8px;
+            background: var(--card);
+        }
+
+        .lightbox-content img,
+        .lightbox-content video {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: var(--cream);
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover { background: rgba(255,255,255,0.12); }
+
+        .lightbox-caption {
+            position: absolute;
+            left: 1.5rem;
+            bottom: 1.25rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--cream);
+            font-size: 0.85rem;
+        }
+
+        .lightbox-caption .btn {
+            padding: 0.5rem 1.1rem;
+            font-size: 0.78rem;
+            margin-left: auto;
         }
 
         /* ─── SKILLS ─── */
@@ -1010,8 +1036,10 @@
             .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
             .exp-date { padding-top: 0; }
 
-            .thesis-grid { grid-template-columns: 1fr; }
             .edu-grid { grid-template-columns: 1fr; }
+            .exp-design-grid { grid-template-columns: 1fr 1fr; }
+            .lightbox { padding: 4.5rem 1rem; }
+            .lightbox-caption { flex-wrap: wrap; }
             .skills-grid { grid-template-columns: 1fr; }
             .languages-grid { grid-template-columns: 1fr; }
 
@@ -1023,7 +1051,6 @@
             .hero-cta { flex-direction: column; }
             .hero-cta .btn { text-align: center; justify-content: center; }
             .about-stats { grid-template-columns: 1fr; gap: 1.25rem; }
-            .thesis-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1033,10 +1060,9 @@
     <nav id="navbar">
         <a href="#" class="nav-logo">UCU<span>.</span></a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#thesis">Thesis</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1054,72 +1080,21 @@
                 <div class="hero-photo-frame"></div>
             </div>
             <div class="hero-content">
-                <p class="hero-eyebrow">Data-Driven Marketing Strategist</p>
+                <p class="hero-eyebrow">Digital Marketing &amp; Analytics</p>
                 <h1>Hello, I'm<br>Ugur Ceren <em>Ulgen</em></h1>
-                <p class="hero-sub">Strategy-driven MSc candidate blending analytical engineering with data-driven marketing. Currently researching how AI visibility correlates with company performance — and seeking a company partner for my Master Thesis.</p>
+                <p class="hero-sub">MSc candidate in Online Business &amp; Marketing with hands-on experience in digital marketing, SEO/GEO, CRM, content and marketing analytics. Currently a Marketing Intern at BSGroup Data Analytics AG, where I also research AI visibility for my Master Thesis.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        Get In Touch
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <a href="CV_Ugur_Ceren_Ulgen.pdf" download class="btn btn-primary">
+                        Download CV
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                    <a href="#thesis" class="btn btn-outline">View Thesis Proposal</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
             </div>
         </div>
         <div class="hero-scroll">
             <div class="scroll-line"></div>
             Scroll to explore
-        </div>
-    </section>
-
-    <!-- THESIS -->
-    <section class="thesis" id="thesis">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-number" style="color: var(--accent-glow);">00</span>
-                <h2 class="section-title">Master Thesis</h2>
-                <div class="section-rule"></div>
-            </div>
-            <div class="reveal reveal-delay-1">
-                <span class="thesis-badge">Seeking Company Partner</span>
-                <h3 class="thesis-heading">AI Visibility and Company Performance: Are More Visible Brands Stronger?</h3>
-                <p class="thesis-intro">AI-driven platforms such as ChatGPT, Perplexity, and Google Gemini are increasingly used for discovering companies — directly naming and recommending specific brands. This thesis uses a comparative case study approach to investigate whether companies with similar initial performance show different outcomes over time depending on their AI visibility. Digital factors such as SEO presence, reviews, and content depth are analysed to identify what is associated with higher visibility.</p>
-            </div>
-            <div class="thesis-grid reveal reveal-delay-2">
-                <div class="thesis-rq">
-                    <div class="thesis-rq-label">RQ 1 — Central</div>
-                    <p>How is AI visibility associated with observable company performance indicators?</p>
-                </div>
-                <div class="thesis-rq">
-                    <div class="thesis-rq-label">RQ 2 — Measurement</div>
-                    <p>How can AI visibility be systematically measured across selected platforms and query types?</p>
-                </div>
-                <div class="thesis-rq">
-                    <div class="thesis-rq-label">RQ 3 — Digital Factors</div>
-                    <p>Which digital factors (e.g., SEO presence, reviews, content depth, structured data) are associated with higher AI visibility?</p>
-                </div>
-            </div>
-            <div class="thesis-meta reveal reveal-delay-3">
-                <div class="thesis-meta-item">
-                    <span class="thesis-meta-label">Frameworks</span>
-                    <span class="thesis-meta-value">Generative Engine Optimization (GEO), Large Language Model Optimization (LLMO), AI-Driven Brand Visibility</span>
-                </div>
-                <div class="thesis-meta-item">
-                    <span class="thesis-meta-label">Tools</span>
-                    <span class="thesis-meta-value">ChatGPT, Perplexity, Google Gemini, Google Trends, Review Platforms, Excel</span>
-                </div>
-                <div class="thesis-meta-item">
-                    <span class="thesis-meta-label">Timeline</span>
-                    <span class="thesis-meta-value">Now — December 2026</span>
-                </div>
-            </div>
-            <div class="thesis-cta reveal reveal-delay-4">
-              <a href="Master_Thesis_Proposal.pdf" class="btn btn-primary" target="_blank" onclick="gtag('event','cv_download')">
-    Download Full Proposal
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
-            </div>
         </div>
     </section>
 
@@ -1134,9 +1109,13 @@
             <div class="about-content-full">
                 <div class="about-text" style="max-width: 800px;">
                     <h3 class="reveal reveal-delay-1">An analytical mind with a passion for turning data into strategic impact.</h3>
-                    <p class="reveal reveal-delay-2">Based in Luzern, Switzerland, I'm an MSc candidate in Online Business &amp; Marketing combining quantitative engineering training with strategic marketing expertise. Experienced in designing partner-evaluation frameworks, full-funnel media strategies, and data-driven campaign optimization. Skilled at translating complex data into structured decision models for brand growth, digital performance, and audience engagement.</p>
+                    <p class="reveal reveal-delay-2">Based in Luzern, Switzerland, I'm an MSc candidate in Online Business &amp; Marketing with hands-on experience in digital marketing, SEO/GEO, CRM, content, and marketing analytics. I combine an Industrial Engineering background with practical experience using GA4, HubSpot, WordPress, and data-driven campaign optimization — and I'm skilled at translating audience and performance data into actionable marketing decisions.</p>
                     <p class="reveal reveal-delay-2">I particularly enjoy leveraging social media as a strategic tool for audience understanding, testing, and scalable impact. Outside of work, you'll find me at ballet class, creating content on social media, swimming, skiing, or exploring fashion &amp; brand trends.</p>
                     <div class="about-stats reveal reveal-delay-3">
+                        <div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Internships</div>
+                        </div>
                         <div>
                             <div class="stat-number">6+</div>
                             <div class="stat-label">Industry Projects</div>
@@ -1155,7 +1134,7 @@
                         <div class="languages-grid">
                             <div class="lang-card">
                                 <span class="lang-name">Turkish</span>
-                                <span class="lang-level">C2 / Native</span>
+                                <span class="lang-level">Native</span>
                                 <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
                             </div>
                             <div class="lang-card">
@@ -1165,105 +1144,9 @@
                             </div>
                             <div class="lang-card">
                                 <span class="lang-name">German</span>
-                                <span class="lang-level">A2 — in progress</span>
+                                <span class="lang-level">A2 — actively improving</span>
                                 <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="education" id="projects">
-        <div class="section-container">
-            <div class="section-header reveal">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Projects</h2>
-                <div class="section-rule"></div>
-            </div>
-            <div class="exp-list">
-                <div class="exp-item reveal">
-                    <div class="exp-date">Sep 2025 — Dec 2025</div>
-                    <div>
-                        <div class="exp-role">Marketing Strategy Development</div>
-                        <div class="exp-company">Webrepublic AG &times; Direct Coffee — HSLU Industry Project</div>
-                        <p class="exp-desc">Partnered with Switzerland's leading digital agency to develop a go-to-market campaign strategy for a D2C coffee brand. Mapped the competitive landscape to uncover untapped positioning opportunities, then translated findings into a platform growth playbook with actionable KPIs for paid and organic channels.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Campaign Strategy</span>
-                            <span class="exp-tag">Competitive Analysis</span>
-                            <span class="exp-tag">D2C Growth</span>
-                            <span class="exp-tag">Platform Strategy</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
-                    <div class="exp-date">Feb 2025 — Jun 2025</div>
-                    <div>
-                        <div class="exp-role">Strategic Partnership Evaluation</div>
-                        <div class="exp-company">Cabritsch Outdoor Fashion AG — HSLU Industry Project</div>
-                        <p class="exp-desc">Built a data-driven partner scoring framework across four weighted dimensions (Value Alignment, Audience Fit, Visibility, Price) to help an emerging Swiss outdoor brand identify its highest-value collaboration partners. Validated the model through expert interviews and delivered a prioritized roadmap that directly informed the brand's partnership pipeline.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Scoring Model</span>
-                            <span class="exp-tag">Expert Interviews</span>
-                            <span class="exp-tag">Brand Strategy</span>
-                            <span class="exp-tag">Decision Frameworks</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
-                    <div class="exp-date">Feb 2025 — Jun 2025</div>
-                    <div>
-                        <div class="exp-role">Content Strategy &amp; Audience Analytics</div>
-                        <div class="exp-company">The Shine Series Blog</div>
-                        <p class="exp-desc">Launched and grew a content platform from zero, reaching 1,064 page views and 221 active users. Ran A/B-style content experiments that lifted engagement rate from 62.3% to 65.3%. Managed the full content pipeline — SEO keyword research, editorial calendar, WordPress publishing — with every decision backed by Google Analytics data.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Google Analytics</span>
-                            <span class="exp-tag">SEO</span>
-                            <span class="exp-tag">WordPress</span>
-                            <span class="exp-tag">A/B Testing</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
-                    <div class="exp-date">Sep 2024 — Dec 2024</div>
-                    <div>
-                        <div class="exp-role">Organizational Change Analysis</div>
-                        <div class="exp-company">CSEM SA — HSLU Corporate Case Study</div>
-                        <p class="exp-desc">Analyzed a live organizational transformation at a leading Swiss deep-tech research institution. Mapped gaps in leadership communication and structural alignment, then applied established change-management frameworks to produce actionable recommendations adopted by the leadership team.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Change Management</span>
-                            <span class="exp-tag">Stakeholder Analysis</span>
-                            <span class="exp-tag">Strategic Recommendations</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
-                    <div class="exp-date">Sep 2024 — Nov 2024</div>
-                    <div>
-                        <div class="exp-role">Chatbot Strategy for Lead Generation &amp; Customer Retention</div>
-                        <div class="exp-company">HSLU Project — Digital Customer Management</div>
-                        <p class="exp-desc">Analyzed strategic implementation of AI chatbots across the customer journey (pre-purchase, purchase, post-purchase). Evaluated CRM integration using the Eight Building Blocks framework and developed implementation recommendations for NLP-based chatbot deployment to improve lead conversion and retention.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">AI Chatbots</span>
-                            <span class="exp-tag">CRM Integration</span>
-                            <span class="exp-tag">Customer Journey</span>
-                            <span class="exp-tag">Lead Conversion</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="exp-item reveal">
-                    <div class="exp-date">Sep 2023 — Jun 2024</div>
-                    <div>
-                        <div class="exp-role">Bachelor Thesis — Portfolio Optimization &amp; Investment Strategy</div>
-                        <div class="exp-company">Kadir Has University</div>
-                        <p class="exp-desc">Engineered multi-scenario portfolio allocation models using historical market data to evaluate risk-return trade-offs across investment strategies. Produced a quantitative decision model that identified the optimal asset mix under varying market conditions — bridging industrial engineering methodology with financial analytics.</p>
-                        <div class="exp-tags">
-                            <span class="exp-tag">Quantitative Modeling</span>
-                            <span class="exp-tag">Financial Analytics</span>
-                            <span class="exp-tag">Risk Analysis</span>
-                            <span class="exp-tag">Excel</span>
                         </div>
                     </div>
                 </div>
@@ -1275,17 +1158,84 @@
     <section id="experience">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-number">03</span>
+                <span class="section-number">02</span>
                 <h2 class="section-title">Experience</h2>
                 <div class="section-rule"></div>
             </div>
             <div class="exp-list">
                 <div class="exp-item reveal">
+                    <div class="exp-date">Jun 2026 — Present</div>
+                    <div>
+                        <div class="exp-role">Marketing Intern</div>
+                        <div class="exp-company">BSGroup Data Analytics AG</div>
+                        <ul class="exp-desc">
+                            <li>Conducted expert research on Generative Engine Optimization (GEO), defined AI-visibility criteria across 12 digital and technical factors and translated findings into content and website optimizations aimed at improving the company's presence in AI-generated responses.</li>
+                            <li>Planned and managed 3 recurring LinkedIn content series, contributing to 16% follower growth and approximately 10K organic impressions per month.</li>
+                            <li>Created and optimized landing pages and website content using SEO best practices to improve organic search visibility.</li>
+                            <li>Managed HubSpot CRM and email marketing campaigns, including contact organization, campaign setup and email communication across a database of 2,500+ contacts.</li>
+                            <li>Supported the digital promotion of 2 executive B2B events — the Richmond Finance Directors' Forum and Future-Ready CFO — coordinating content and campaign assets with internal and external stakeholders.</li>
+                            <li>Produced LinkedIn content, videos and digital creatives for a 2.3K+ public audience using Figma and multi-channel marketing workflows.</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span class="exp-tag">GEO / SEO</span>
+                            <span class="exp-tag">HubSpot CRM</span>
+                            <span class="exp-tag">Email Marketing</span>
+                            <span class="exp-tag">LinkedIn Content</span>
+                            <span class="exp-tag">B2B Events</span>
+                            <span class="exp-tag">Figma</span>
+                        </div>
+                        <div class="exp-designs">
+                            <div class="exp-designs-label">Design work — all created in Figma · click to view, ↓ to download</div>
+                            <div class="exp-design-grid">
+                                <div class="exp-design">
+                                    <button class="exp-design-thumb" type="button" data-src="portfolio/nurol-video.mp4" data-type="video" data-title="Nurol — Video">
+                                        <video src="portfolio/nurol-video.mp4" muted playsinline preload="metadata" aria-label="Nurol video preview"></video>
+                                    </button>
+                                    <div class="exp-design-caption">
+                                        <span title="Nurol — Video (MP4)">Nurol — video</span>
+                                        <a href="portfolio/nurol-video.mp4" download class="exp-design-download" title="Download MP4" aria-label="Download Nurol video">&#8595;</a>
+                                    </div>
+                                </div>
+                                <div class="exp-design">
+                                    <button class="exp-design-thumb" type="button" data-src="portfolio/bsgroup-future-ready-cfo-animation.gif" data-type="image" data-title="Future-Ready CFO Event — Animated Invitation">
+                                        <img src="portfolio/thumbs/bsgroup-future-ready-cfo-animation.jpg" alt="Future-Ready CFO Event animated invitation" loading="lazy">
+                                    </button>
+                                    <div class="exp-design-caption">
+                                        <span title="Future-Ready CFO Event — Animated Invitation (GIF)">Future-Ready CFO — animation</span>
+                                        <a href="portfolio/bsgroup-future-ready-cfo-animation.gif" download class="exp-design-download" title="Download GIF" aria-label="Download Future-Ready CFO animation">&#8595;</a>
+                                    </div>
+                                </div>
+                                <div class="exp-design">
+                                    <button class="exp-design-thumb" type="button" data-src="portfolio/bsgroup-close-reconciliation-infographic.png" data-type="image" data-title="How Much of Your Close Is Actually Closing? — Infographic">
+                                        <img src="portfolio/thumbs/bsgroup-close-reconciliation-infographic.jpg" alt="Month-end close and reconciliation infographic" loading="lazy">
+                                    </button>
+                                    <div class="exp-design-caption">
+                                        <span title="How Much of Your Close Is Actually Closing? — Infographic (PNG)">Close &amp; reconciliation — infographic</span>
+                                        <a href="portfolio/bsgroup-close-reconciliation-infographic.png" download class="exp-design-download" title="Download PNG" aria-label="Download close and reconciliation infographic">&#8595;</a>
+                                    </div>
+                                </div>
+                                <div class="exp-design">
+                                    <button class="exp-design-thumb" type="button" data-src="portfolio/bsgroup-enablement-training-poster.png" data-type="image" data-title="Enablement &amp; Training — Roll-up Poster">
+                                        <img src="portfolio/thumbs/bsgroup-enablement-training-poster.jpg" alt="Enablement and Training roll-up poster" loading="lazy">
+                                    </button>
+                                    <div class="exp-design-caption">
+                                        <span title="Enablement &amp; Training — Roll-up Poster (PNG)">Enablement &amp; Training — poster</span>
+                                        <a href="portfolio/bsgroup-enablement-training-poster.png" download class="exp-design-download" title="Download PNG" aria-label="Download Enablement and Training poster">&#8595;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
                     <div class="exp-date">Jul 2024 — Aug 2024</div>
                     <div>
                         <div class="exp-role">Sales &amp; After-Sales Operations Intern</div>
-                        <div class="exp-company">Artemis Construction Industry</div>
-                        <p class="exp-desc">Optimized order-to-delivery workflow via ERP analytics, improving pricing accuracy and reducing transaction errors. Streamlined after-sales and warranty operations through service analytics and structured issue resolution. Enabled sales operations via cross-functional coordination, KPI reporting, and process tracking.</p>
+                        <div class="exp-company">Artemis</div>
+                        <ul class="exp-desc">
+                            <li>Optimized order-to-delivery and after-sales workflows using ERP and service analytics, improving pricing accuracy and issue resolution.</li>
+                            <li>Coordinated across sales, logistics and finance to standardize KPI reporting and improve process visibility.</li>
+                        </ul>
                         <div class="exp-tags">
                             <span class="exp-tag">ERP Analytics</span>
                             <span class="exp-tag">KPI Reporting</span>
@@ -1297,13 +1247,107 @@
                     <div class="exp-date">Aug 2023 — Sep 2023</div>
                     <div>
                         <div class="exp-role">Production Planning Intern</div>
-                        <div class="exp-company">SUNNY — Atmaca Electronics</div>
-                        <p class="exp-desc">Led Kaizen-based time studies and bottleneck analysis across multi-product production lines. Tracked hourly output vs. KPI targets using advanced Excel analysis. Benchmarked Samsung vs. Sunny production efficiency metrics and supported data-driven planning decisions via ERP-based reporting.</p>
+                        <div class="exp-company">Atmaca Electronics (SUNNY)</div>
+                        <ul class="exp-desc">
+                            <li>Conducted Kaizen-based time studies and bottleneck analysis across 5 production lines, tracking output against KPI targets.</li>
+                            <li>Analyzed ERP production data and benchmarked production efficiency to identify optimization opportunities and support daily planning.</li>
+                        </ul>
                         <div class="exp-tags">
                             <span class="exp-tag">Kaizen</span>
                             <span class="exp-tag">Excel</span>
                             <span class="exp-tag">ERP</span>
                             <span class="exp-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="education" id="projects">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Projects</h2>
+                <div class="section-rule"></div>
+            </div>
+            <div class="exp-list">
+                <div class="exp-item reveal">
+                    <div class="exp-date">Feb 2026 — Dec 2026 (expected)</div>
+                    <div>
+                        <div class="exp-role">Master's Thesis — AI Visibility of Data Analytics Companies in Switzerland</div>
+                        <div class="exp-company">HSLU Master's Thesis in collaboration with BSGroup Data Analytics AG</div>
+                        <ul class="exp-desc">
+                            <li>Benchmarking AI-generated company recommendations (ChatGPT, Perplexity, Google Gemini) against expert perceptions of the Swiss data analytics market.</li>
+                            <li>Testing selected AI visibility criteria to identify which factors are associated with being surfaced in AI-generated responses.</li>
+                            <li>Translating the findings into optimization opportunities for data analytics companies in the Swiss market.</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span class="exp-tag">AI Visibility</span>
+                            <span class="exp-tag">GEO</span>
+                            <span class="exp-tag">Benchmarking</span>
+                            <span class="exp-tag">Expert Research</span>
+                            <span class="exp-tag">Swiss Market</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Sep 2025 — Dec 2025</div>
+                    <div>
+                        <div class="exp-role">Marketing Strategy Development</div>
+                        <div class="exp-company">Webrepublic AG &times; Direct Coffee — HSLU Industry Project</div>
+                        <ul class="exp-desc">
+                            <li>Designed a full-funnel media strategy (awareness + commitment) with audience personas, KPI targets (vCPM, CVR) and a CHF 20–27K budget allocation.</li>
+                            <li>Audited the e-commerce UX and proposed checkout optimizations to reduce drop-off — language fixes, missing payment methods, CTA consistency.</li>
+                            <li>Planned Meta retargeting campaigns, micro-influencer collaborations and WhatsApp/email CRM automation flows.</li>
+                            <li>Conducted competitor and market intelligence analysis to identify positioning gaps.</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Media Strategy</span>
+                            <span class="exp-tag">UX Audit</span>
+                            <span class="exp-tag">Meta Retargeting</span>
+                            <span class="exp-tag">CRM Automation</span>
+                            <span class="exp-tag">Competitive Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Feb 2025 — Jun 2025</div>
+                    <div>
+                        <div class="exp-role">Strategic Partnership Evaluation</div>
+                        <div class="exp-company">Cabritsch Outdoor Fashion AG — HSLU Industry Project</div>
+                        <ul class="exp-desc">
+                            <li>Developed a 14-point partner-scoring framework across Value Alignment, Target Audience Fit, Brand Visibility and Price Alignment dimensions.</li>
+                            <li>Applied Yoshino &amp; Rangan's strategic alliance typology to identify complementary partnerships.</li>
+                            <li>Conducted semi-structured expert interviews and thematic analysis (Braun &amp; Clarke) to validate the evaluation criteria.</li>
+                            <li>Ranked 9+ candidate brands and produced a prioritized partnership roadmap.</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Scoring Framework</span>
+                            <span class="exp-tag">Expert Interviews</span>
+                            <span class="exp-tag">Thematic Analysis</span>
+                            <span class="exp-tag">Brand Strategy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item reveal">
+                    <div class="exp-date">Feb 2025 — Jun 2025</div>
+                    <div>
+                        <div class="exp-role">Content Strategy &amp; Audience Analytics</div>
+                        <div class="exp-company">The Shine Series Blog</div>
+                        <ul class="exp-desc">
+                            <li>Developed and optimized a cross-platform content strategy (blog + TikTok) using Google Analytics and engagement metrics.</li>
+                            <li>Improved engagement rate by +4.9% (62.26% → 65.29%) through iterative A/B testing and optimization.</li>
+                            <li>Generated 1,064 views and 221 active users; analyzed audience behavior to refine content direction.</li>
+                            <li>Published SEO-structured content via WordPress CMS.</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Google Analytics</span>
+                            <span class="exp-tag">SEO</span>
+                            <span class="exp-tag">WordPress</span>
+                            <span class="exp-tag">TikTok</span>
+                            <span class="exp-tag">A/B Testing</span>
                         </div>
                     </div>
                 </div>
@@ -1346,77 +1390,77 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-group reveal reveal-delay-1">
-                    <h4>Strategy &amp; Analytics</h4>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>Data Analysis</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>KPI Modeling</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Market Research</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Audience Segmentation</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Decision Framework Design</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Qualitative Research</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Thematic Analysis</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-group reveal reveal-delay-2">
                     <h4>Digital &amp; Growth</h4>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <span>SEO / SEM</span>
+                            <span>SEO / SEM / GEO</span>
                         </div>
                         <div class="skill-item">
                             <span>Conversion Analytics (CTR, CR, ROI)</span>
                         </div>
                         <div class="skill-item">
-                            <span>Content Performance Optimization</span>
+                            <span>Content Optimization</span>
                         </div>
                         <div class="skill-item">
                             <span>Social Media Strategy</span>
                         </div>
                         <div class="skill-item">
-                            <span>Media Planning &amp; Buying</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>CRM Strategy</span>
+                            <span>Email Marketing</span>
                         </div>
                         <div class="skill-item">
                             <span>A/B Testing</span>
                         </div>
                         <div class="skill-item">
-                            <span>UX Audit</span>
+                            <span>Audience Segmentation</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>B2B Event Marketing</span>
                         </div>
                     </div>
                 </div>
-                <div class="skill-group reveal reveal-delay-3">
-                    <h4>Tools</h4>
+                <div class="skill-group reveal reveal-delay-2">
+                    <h4>Analytics</h4>
                     <div class="skill-items">
                         <div class="skill-item">
                             <span>Google Analytics 4</span>
                         </div>
                         <div class="skill-item">
-                            <span>Excel / Microsoft 365</span>
+                            <span>KPI Analysis</span>
                         </div>
                         <div class="skill-item">
-                            <span>SQL / SPSS</span>
+                            <span>Market Research</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Excel</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>CRM Analytics</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>LinkedIn Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group reveal reveal-delay-3">
+                    <h4>Platforms &amp; Tools</h4>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>HubSpot</span>
                         </div>
                         <div class="skill-item">
                             <span>WordPress</span>
                         </div>
                         <div class="skill-item">
-                            <span>Adobe Premiere Pro</span>
+                            <span>Figma</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Canva</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Microsoft 365</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Google Search Console</span>
                         </div>
                     </div>
                 </div>
@@ -1433,8 +1477,8 @@
                 <div class="section-rule"></div>
             </div>
             <div class="contact-text reveal" style="max-width: 600px;">
-                <h3>Looking for a Master Thesis company partner.</h3>
-                <p>I'm researching whether AI visibility is associated with stronger company performance — and which digital factors drive it. If your team wants to understand how your brand appears in AI-generated recommendations and what that means for growth, I'd love to collaborate.</p>
+                <h3>Let's talk digital marketing &amp; analytics.</h3>
+                <p>I'm currently a Marketing Intern at BSGroup Data Analytics AG and finishing my MSc at HSLU (expected December 2026). If you're looking for someone who can turn audience and performance data into actionable marketing decisions — across SEO/GEO, CRM, content and analytics — I'd love to hear from you.</p>
                 <div class="contact-links">
                     <a href="mailto:u.cerenulgen@gmail.com" class="contact-link">
                         <div class="contact-link-icon">&#9993;</div>
@@ -1444,6 +1488,10 @@
                         <div class="contact-link-icon">in</div>
                         linkedin.com/in/ugur-ceren-ulgen
                     </a>
+                    <a href="CV_Ugur_Ceren_Ulgen.pdf" download class="contact-link">
+                        <div class="contact-link-icon">&#8595;</div>
+                        Download CV (PDF)
+                    </a>
                     <a href="#" class="contact-link">
                         <div class="contact-link-icon">&#9670;</div>
                         Luzern, Switzerland
@@ -1452,6 +1500,16 @@
             </div>
         </div>
     </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close preview">&times;</button>
+        <div class="lightbox-content" id="lightboxContent"></div>
+        <div class="lightbox-caption">
+            <span id="lightboxTitle"></span>
+            <a id="lightboxDownload" href="#" download class="btn btn-primary">Download</a>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -1502,6 +1560,53 @@
         }, { threshold: 0.5 });
 
         skillBars.forEach(bar => skillObserver.observe(bar));
+
+        // Design lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.getElementById('lightboxContent');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDownload = document.getElementById('lightboxDownload');
+
+        function openLightbox(src, type, title) {
+            lightboxContent.innerHTML = '';
+            if (type === 'video') {
+                const video = document.createElement('video');
+                video.src = src;
+                video.controls = true;
+                video.autoplay = true;
+                video.playsInline = true;
+                lightboxContent.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = title;
+                lightboxContent.appendChild(img);
+            }
+            lightboxTitle.textContent = title;
+            lightboxDownload.href = src;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightboxContent.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-src]').forEach(el => {
+            el.addEventListener('click', () => {
+                openLightbox(el.dataset.src, el.dataset.type, el.dataset.title);
+            });
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        });
 
     </script>
 </body>
